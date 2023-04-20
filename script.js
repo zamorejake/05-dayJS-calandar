@@ -62,6 +62,8 @@ $(function () {
 
   for (var i = 0; i < textDesc.length; i++) {
     textDesc[i].addEventListener("click", setFields);
+    //well it works... not great but it works...
+    textDesc[i].click();
   }
 
   function setFields(e) {
