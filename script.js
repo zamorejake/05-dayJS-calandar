@@ -57,6 +57,28 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+
+  let textDesc = document.getElementsByClassName("col-8 col-md-10 description");
+
+  for (var i = 0; i < textDesc.length; i++) {
+    textDesc[i].addEventListener("click", setFields);
+  }
+
+  function setFields(e) {
+    let parent = e.target.parentElement.id;
+    let currentCalendar = JSON.parse(localStorage.getItem("schedule"));
+
+    if (currentCalendar) {
+      for (var i = 0; i < currentCalendar.length; i++) {
+        if (currentCalendar[i][0] === parent) {
+          let fields = currentCalendar[i][1];
+          e.target.value = fields;
+          break;
+        }
+      }
+    }
+  }
+
   // TODO: Add code to display the current date in the header of the page.
   let currentDay = document.getElementById("currentDay");
   let currentTime = dayjs();
