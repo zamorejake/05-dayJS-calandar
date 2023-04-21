@@ -16,7 +16,7 @@ $(function () {
       for (var i = 0; i < currentCalendar.length; i++) {
         if (currentCalendar[i][0] === parent) break;
       }
-      currentCalendar[i][1] = text.value;
+      currentCalendar[i][1] = text.value.trim();
       localStorage.setItem("schedule", JSON.stringify(currentCalendar));
     } else {
       let newCalendar = [
@@ -33,7 +33,7 @@ $(function () {
       for (var i = 0; i < newCalendar.length; i++) {
         if (newCalendar[i][0] === parent) break;
       }
-      newCalendar[i][1] = text.value;
+      newCalendar[i][1] = text.value.trim();
       localStorage.setItem("schedule", JSON.stringify(newCalendar));
     }
   }
